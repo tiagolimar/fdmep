@@ -112,10 +112,10 @@ def get_valid_name(field_name, default_name):
         if not name:
             info(f"Usando padrão para {field_name}: {default_name}")
             return f'{field_name} = {default_name}'
-        if all(c.isalnum() or c == '_' for c in name):
+        if all(c.isalnum() or c in ['_',' '] for c in name):
             ok(f"Nome aceito para {field_name}: {name}")
             return f'{field_name} = {name}'
-        err("Nome inválido. Use apenas letras, números e _ (underline). Tente novamente.")
+        err("Nome inválido. Use apenas letras, números, espaços e _ (underline). Tente novamente.")
 
 
 def mount_config(config_file):
@@ -139,7 +139,7 @@ def mount_config(config_file):
         return True
 
 
-def run_install():
+def run_create():
     """Executa o fluxo de criação da extensão."""
     config_file = 'config.yaml'
     if mount_config(config_file):

@@ -126,7 +126,7 @@ def _ensure_dir(path):
     else:
         info(f"Pasta já existe: {path}")
 
-def run_install():
+def run_create():
     \"\"\"Fluxo simples de demonstração para validar a CLI.\"\"\"
     info("Iniciando scaffolding da extensão pyRevit (demo).")
     _ensure_dir("MyExtension.extension")
@@ -144,7 +144,7 @@ def run_install():
 import argparse
 from importlib.metadata import version, PackageNotFoundError
 
-from fdmep.scaffolder import run_install
+from fdmep.scaffolder import run_create
 from fdmep import __version__
 
 def main():
@@ -155,7 +155,7 @@ def main():
     parser.add_argument("--version", action="store_true", help="Mostra a versão e sai.")
 
     sub = parser.add_subparsers(dest="command")
-    sub.add_parser("install", help="Executa o scaffolding/instalação da extensão.")
+    sub.add_parser("create", help="Executa o scaffolding/instalação da extensão.")
 
     args = parser.parse_args()
 
@@ -166,8 +166,8 @@ def main():
             print(__version__)
         return
 
-    if args.command == "install":
-        run_install()
+    if args.command == "create":
+        run_create()
         return
 
     parser.print_help()
@@ -236,8 +236,8 @@ twine upload dist/*
 
 1. Estrutura com layout `src/`
 2. `pyproject.toml` usando setuptools e `project.scripts`
-3. `cli.py` com `main()` + `scaffolder.py` com `run_install()`
+3. `cli.py` com `main()` + `scaffolder.py` com `run_create()`
 4. `pip install -e .` para testar localmente
 5. `python -m build` e `twine upload dist/*` para publicar
 
-Pronto! Sua CLI estará instalável via `pip install fdmep` e executável como `fdmep install`. 🚀
+Pronto! Sua CLI estará instalável via `pip install fdmep` e executável como `fdmep create`. 🚀
