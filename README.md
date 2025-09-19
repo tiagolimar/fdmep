@@ -1,20 +1,28 @@
-# Sobre o Projeto
+# fdmep — CLI para scaffolding de extensões pyRevit
 
-fdmep é uma aplicação CLI para facilitar inicializações de extensões pyRevit.
+[![PyPI version](https://img.shields.io/pypi/v/fdmep.svg)](https://pypi.org/project/fdmep/)
+![Python versions](https://img.shields.io/pypi/pyversions/fdmep.svg)
+![License](https://img.shields.io/badge/license-MIT-informational)
 
-## 1) Como usar
+## Sobre o Projeto
 
-Utilize o comando abaixo para fazer a instalação da aplicação
+**fdmep** é uma aplicação **CLI** para facilitar inicializações de extensões **pyRevit**.
+
+### 1) Como usar
+
+Instale via pip:
 
 ```bash
 pip install fdmep
 ```
 
-para inicializar o seu projeto utilize o comando:
+Inicialize um projeto:
 
 ```bash
 fdmep install
 ```
+
+> Requisitos: Python 3.9+, permissões de escrita no diretório atual. (pyRevit não é necessário para rodar o scaffolding, apenas para usar a extensão criada.)
 
 ---
 
